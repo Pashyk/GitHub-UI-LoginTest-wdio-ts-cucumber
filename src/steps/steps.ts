@@ -31,7 +31,7 @@ When('I delete repository {string}', async (repo: string): Promise<void> => prod
 Then(
 	'I check repository {string} was deleted',
 	async (repo: string): Promise<void> => {
-		const repoPresence = await productionPage.checkRepositoryDeletion(repo);
+		const repoPresence: boolean = await productionPage.checkRepositoryDeletion(repo);
 		expect(repoPresence).to.be.false;
 	},
 );
