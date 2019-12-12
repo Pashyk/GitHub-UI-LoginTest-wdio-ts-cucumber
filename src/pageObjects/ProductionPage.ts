@@ -1,20 +1,20 @@
 class ProductionPage {
-	get deleteConfirmationBtn() {
+	get deleteConfirmationBtn(): WebdriverIO.Element {
 		return $('li:nth-child(4) button[type="submit"]');
 	}
-	get deleteConfirmationField() {
+	get deleteConfirmationField(): WebdriverIO.Element {
 		return $('[aria-label*="delete this repository"]');
 	}
-	get deleteRepositoryBtn() {
+	get deleteRepositoryBtn(): WebdriverIO.Element {
 		return $('.Box-row:nth-child(4) [role="button"]');
 	}
-	get userProfileName() {
+	get userProfileName(): WebdriverIO.Element {
 		return $('.p-nickname');
 	}
-	protected static repoLink(repositoryName: string) {
+	protected static repoLink(repositoryName: string): WebdriverIO.Element {
 		return $(`[data-filterable-for="dashboard-repos-filter-left"] [title="${repositoryName}"]`);
 	}
-	protected static repoSettings(repositoryName: string) {
+	protected static repoSettings(repositoryName: string): WebdriverIO.Element {
 		return $(`[href*="${repositoryName}/settings"]`);
 	}
 	public checkRepositoryDeletion(repositoryName: string): boolean {

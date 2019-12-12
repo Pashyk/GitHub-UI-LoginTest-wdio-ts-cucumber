@@ -13,7 +13,7 @@ When(
 Then(
 	'I see username {string} on the page',
 	async (username: string): Promise<void> => {
-		const profileName = await productionPage.successLoginCheck(username);
+		const profileName: string = await productionPage.successLoginCheck(username);
 		expect(profileName).to.equal(username);
 	},
 );
@@ -22,7 +22,7 @@ When('I create new repository {string}', async (repoName: string): Promise<void>
 Then(
 	'I check readme.md file was created',
 	async (): Promise<void> => {
-		const readmePresence = repository.readmeFilePresence();
+		const readmePresence: boolean = repository.readmeFilePresence();
 		expect(readmePresence).to.be.true;
 	},
 );

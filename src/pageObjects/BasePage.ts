@@ -1,14 +1,12 @@
-import Element = WebdriverIO.Element;
-
 export class BasePage {
 	private baseURL: string = `https://github.com/login`;
-	get loginField(): Element {
+	get loginField(): WebdriverIO.Element {
 		return $('#login_field');
 	}
-	get passwordField(): Element {
+	get passwordField(): WebdriverIO.Element {
 		return $('#password');
 	}
-	get singInBtn(): Element {
+	get singInBtn(): WebdriverIO.Element {
 		return $('input[type="submit"]');
 	}
 	public open(): void {

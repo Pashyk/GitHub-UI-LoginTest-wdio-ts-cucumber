@@ -1,19 +1,17 @@
-import Element = WebdriverIO.Element;
-
 export class RepositoryPage {
-	get createRepositoryButton(): Element {
+	get createRepositoryButton(): WebdriverIO.Element {
 		return $('#new_repository button[type="submit"]');
 	}
-	get readmeInitCheckbox(): Element {
+	get readmeInitCheckbox(): WebdriverIO.Element {
 		return $('#repository_auto_init');
 	}
-	get readmeFile(): Element {
+	get readmeFile(): WebdriverIO.Element {
 		return $('tbody [title="README.md"]');
 	}
-	get repositoryNameField(): Element {
+	get repositoryNameField(): WebdriverIO.Element {
 		return $('#repository_name');
 	}
-	public create(repositoryName: string) {
+	public create(repositoryName: string): void {
 		browser.url('https://github.com/new');
 		this.repositoryNameField.addValue(repositoryName);
 		this.readmeInitCheckbox.click();
@@ -21,7 +19,7 @@ export class RepositoryPage {
 		this.createRepositoryButton.click();
 	}
 	public readmeFilePresence(): Boolean {
-		const status = this.readmeFile.isExisting();
+		const status: boolean = this.readmeFile.isExisting();
 		if (!status) throw new Error('File "README.MD" was not created');
 		return status;
 	}
